@@ -16,7 +16,7 @@ template(name="cardCustomField")
     +Template.dynamic(template=getTemplate)
 
 template(name="cardCustomField-text")
-    if canModifyCard
+    if canModifyCardCustomField
         +inlinedForm(classNames="js-card-customfield-text")
             +editor(autofocus=true)
                 = value
@@ -36,7 +36,7 @@ template(name="cardCustomField-text")
 
 
 template(name="cardCustomField-number")
-    if canModifyCard
+    if canModifyCardCustomField
         +inlinedForm(classNames="js-card-customfield-number")
             input(type="number" value=data.value)
             .edit-controls.clearfix
@@ -54,14 +54,14 @@ template(name="cardCustomField-number")
 
 template(name="cardCustomField-checkbox")
   .js-checklist-item.checklist-item(class="{{#if data.value }}is-checked{{/if}}")
-    if canModifyCard
+    if canModifyCardCustomField
       .check-box-container
         .check-box.materialCheckBox(class="{{#if data.value }}is-checked{{/if}}")
     else
       .materialCheckBox(class="{{#if data.value }}is-checked{{/if}}")
 
 template(name="cardCustomField-currency")
-    if canModifyCard
+    if canModifyCardCustomField
         +inlinedForm(classNames="js-card-customfield-currency")
             input(type="text" value=data.value autofocus)
             .edit-controls.clearfix
@@ -78,7 +78,7 @@ template(name="cardCustomField-currency")
             = formattedValue
 
 template(name="cardCustomField-date")
-    if canModifyCard
+    if canModifyCardCustomField
       a.js-edit-date(title="{{showTitle}} {{_ 'predicate-week'}} {{showWeek}}" class="{{classes}}")
         if value
           div.card-date
@@ -97,7 +97,7 @@ template(name="cardCustomField-date")
               | {{showWeek}}
 
 template(name="cardCustomField-dropdown")
-    if canModifyCard
+    if canModifyCardCustomField
         +inlinedForm(classNames="js-card-customfield-dropdown")
             select.inline
                 each items
@@ -125,7 +125,7 @@ template(name="cardCustomField-dropdown")
                 = selectedItem
 
 template(name="cardCustomField-stringtemplate")
-    if canModifyCard
+    if canModifyCardCustomField
         +inlinedForm(classNames="js-card-customfield-stringtemplate")
             each item in stringtemplateItems.get
                 input.js-card-customfield-stringtemplate-item(type="text" value=item placeholder="")
