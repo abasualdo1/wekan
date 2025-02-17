@@ -12,19 +12,19 @@ Template.cardCustomFieldsPopup.helpers({
   },
 });
 
-Template.cardCustomFieldsPopup.events({
-  'click .js-select-field'(event) {
-    const card = Utils.getCurrentCard();
-    const customFieldId = this._id;
-    card.toggleCustomField(customFieldId);
-    event.preventDefault();
-  },
-  'click .js-settings'(event) {
-    EscapeActions.executeUpTo('detailsPane');
-    Sidebar.setView('customFields');
-    event.preventDefault();
-  },
-});
+//Template.cardCustomFieldsPopup.events({
+//  'click .js-select-field'(event) {
+//    const card = Utils.getCurrentCard();
+//    const customFieldId = this._id;
+//    card.toggleCustomField(customFieldId);
+//    event.preventDefault();
+//  },
+//  'click .js-settings'(event) {
+//    EscapeActions.executeUpTo('detailsPane');
+//    Sidebar.setView('customFields');
+//    event.preventDefault();
+//  },
+//});
 
 // cardCustomField
 const CardCustomField = BlazeComponent.extendComponent({
@@ -91,7 +91,7 @@ CardCustomField.register('cardCustomField');
   events() {
     return [
       {
-        'click .js-checklist-item .check-box-container': this.toggleItem,
+        //'click .js-checklist-item .check-box-container': this.toggleItem,
       },
     ];
   }
