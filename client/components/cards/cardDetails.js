@@ -344,6 +344,8 @@ BlazeComponent.extendComponent({
         'click .js-go-to-linked-card'() {
           Utils.goCardId(this.data().linkedId);
         },
+
+        'click .cardAssyDetails' : Popup.open('cardAssyDetails'),
         'click .js-member': Popup.open('cardMember'),
         'click .js-add-members': Popup.open('cardMembers'),
         'click .js-assignee': Popup.open('cardAssignee'),
@@ -355,7 +357,7 @@ BlazeComponent.extendComponent({
         'click .js-end-date': Popup.open('editCardEndDate'),
         'click .js-show-positive-votes': Popup.open('positiveVoteMembers'),
         'click .js-show-negative-votes': Popup.open('negativeVoteMembers'),
-        'click .js-custom-fields': Popup.open('cardCustomFields'),
+        //'click .js-custom-fields': Popup.open('cardCustomFields'),
         'mouseenter .js-card-details'() {
           if (this.parentComponent() === null) return;
           const parentComponent = this.parentComponent().parentComponent();
@@ -482,11 +484,44 @@ BlazeComponent.extendComponent({
   },
 }).register('cardDetails');
 
+Template.cardAssyDetailsPopup.helpers({
+  displayButton() {
+    //hard coded - add programmatic logic to toggle boolean
+    let ret = true;
+    return ret;
+  },
+
+  getCardId() {
+    //hard coded - add programmatic to return partNum from cardId
+    //let ret = '114r2012-9';
+    //let ret = '791S2171-101';
+    //return ret = this.currentData()._id
+    return ret = this.currentData().listId
+  }
+
+});
+
+
 Template.cardDetails.helpers({
   isPopup() {
     let ret = !!Utils.getPopupCardId();
     return ret;
+  },
+  displayButton() {
+    //hard coded - add programmatic logic to toggle boolean
+    let ret = true;
+    return ret;
+  },
+
+  displayCustomFields() {
+    //hard coded - add programmatic logic to toggle boolean
+    let ret = true;
+    return ret;
   }
+
+
+
+
 });
 Template.cardDetailsPopup.onDestroyed(() => {
   Session.delete('popupCardId');
@@ -597,7 +632,7 @@ Template.cardDetailsActionsPopup.events({
   'click .js-attachments': Popup.open('cardAttachments'),
   'click .js-start-voting': Popup.open('cardStartVoting'),
   'click .js-start-planning-poker': Popup.open('cardStartPlanningPoker'),
-  'click .js-custom-fields': Popup.open('cardCustomFields'),
+  //'click .js-custom-fields': Popup.open('cardCustomFields'),
   'click .js-received-date': Popup.open('editCardReceivedDate'),
   'click .js-start-date': Popup.open('editCardStartDate'),
   'click .js-due-date': Popup.open('editCardDueDate'),
