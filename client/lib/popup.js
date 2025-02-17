@@ -71,6 +71,7 @@ window.Popup = new (class {
         openerElement,
         hasPopupParent: clickFromPopup(evt),
         title: self._getTitle(popupName),
+        test: 'my test value',
         depth: self._stack.length,
         offset: self._getOffset(openerElement),
         dataContext: (this && this.currentData && this.currentData()) || (options && options.dataContextIfCurrentDataIsUndefined) || this,
@@ -193,11 +194,21 @@ window.Popup = new (class {
       if (Utils.isMiniScreen()) return { left: 0, top: 0 };
 
       const offset = $element.offset();
+
+      //console.debug(offset)
+
       const popupWidth = 300 + 15;
+      //return {
+      //  left: Math.min(offset.left, $(window).width() - popupWidth),
+      //  top: offset.top + $element.outerHeight(),
+      //};
+
       return {
         left: Math.min(offset.left, $(window).width() - popupWidth),
-        top: offset.top + $element.outerHeight(),
+        top: 100,
       };
+
+
     };
   }
 
