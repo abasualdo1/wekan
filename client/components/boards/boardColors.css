@@ -1454,7 +1454,7 @@
   margin: 10px 0;
   padding: 0px;
   border-radius: 5px;
-  min-width: 300px;
+  min-width: 200px;
 }
 .board-color-modern .list-body .open-minicard-composer:hover {
   background: none;
