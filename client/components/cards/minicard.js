@@ -166,6 +166,7 @@ BlazeComponent.extendComponent({
 Template.minicardDetailsActionsPopup.events({
   'click .js-due-date': Popup.open('editCardDueDate'),
   'click .js-move-card': Popup.open('moveCard'),
+  'click .js-details-popup': Popup.open('cardAssyDetails'),
   'click .js-copy-card': Popup.open('copyCard'),
   'click .js-set-card-color': Popup.open('setCardColor'),
   'click .js-add-labels': Popup.open('cardLabels'),
