@@ -73,6 +73,10 @@ Utils = {
     );
     return ret;
   },
+
+  canModifyCardCustomField() {
+    return false;
+  },
   canModifyBoard() {
     const currentUser = ReactiveCache.getCurrentUser();
     const ret = (
