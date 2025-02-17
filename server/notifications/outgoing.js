@@ -64,6 +64,10 @@ if (Meteor.isServer) {
     'card',
     'commentId',
     'swimlaneId',
+    'checklist',
+    'checklistId',
+    'checklistItem',
+    'checklistItemId',
     'customField',
     'customFieldValue',
     'labelId',
@@ -115,6 +119,9 @@ if (Meteor.isServer) {
         check(params, Object);
         this.unblock();
 
+
+        //console.debug('params', params)
+
         // label activity did not work yet, see wekan/models/activities.js
         const quoteParams = _.clone(params);
         const clonedParams = _.clone(params);
@@ -126,6 +133,9 @@ if (Meteor.isServer) {
           'oldBoard',
           'comment',
           'checklist',
+          'checklistId',
+          'checklistItem',
+          'checklistItemId',
           'swimlane',
           'oldSwimlane',
           'labelId',
