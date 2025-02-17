@@ -193,6 +193,10 @@ template(name="minicardDetailsActionsPopup")
   ul.pop-over-list
     if canModifyCard
       li
+        a.js-details-popup
+          i.fa.fa-arrow-right
+          | {{_ 'assyDetailsPopup-title'}}
+      li
         a.js-move-card
           i.fa.fa-arrow-right
           | {{_ 'moveCardPopup-title'}}
