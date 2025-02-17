@@ -5,7 +5,8 @@
   border-bottom-color: #c2c2c2;
   box-shadow: 0 1px 6px rgba(0,0,0,0.3);
   position: absolute;
-  width: 300px;
+  width: 600px;
+  /* width: fit-content; */
   z-index: 99999;
   margin-top: 5px;
 }
