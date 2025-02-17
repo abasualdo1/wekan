@@ -60,7 +60,9 @@ Activities.helpers({
   },
   label() {
     // Label activity did not work yet, unable to edit labels when tried this.
-    return ReactiveCache.getCard(this.labelId);
+    //return ReactiveCache.getCard(this.labelId);
+    return this.labelId;
+
   },
 });
 
@@ -115,6 +117,9 @@ if (Meteor.isServer) {
     const params = {
       activityId: activity._id,
     };
+
+    //console.debug('activity:', activity)
+
     if (activity.userId) {
       // No need send notification to user of activity
       // participants = _.union(participants, [activity.userId]);
@@ -253,10 +258,16 @@ if (Meteor.isServer) {
       params.attachmentId = activity.attachmentId;
     }
     if (activity.checklistId) {
+
+
       const checklist = activity.checklist();
+      //console.debug('checklist:',checklist)
+
+
       if (checklist) {
         if (checklist.title) {
           params.checklist = checklist.title;
+          params.checklistId = checklist._id;
         }
       }
     }
@@ -265,6 +276,7 @@ if (Meteor.isServer) {
       if (checklistItem) {
         if (checklistItem.title) {
           params.checklistItem = checklistItem.title;
+          params.checklistItemId = checklistItem._id;
         }
       }
     }
@@ -279,10 +291,13 @@ if (Meteor.isServer) {
         }
       }
     }
-    // Label activity did not work yet, unable to edit labels when tried this.
+    //   Label activity did not work yet, unable to edit labels when tried this.
     if (activity.labelId) {
       const label = activity.label();
+      //console.debug('act label', label)
       if (label) {
+      //update to true label object, is order to return label name
+        params.labelId = label
         if (label.name) {
           params.label = label.name;
         } else if (label.color) {
