@@ -125,7 +125,8 @@ do
 		#---------------------------------------------------------------------
 		# Logging of terminal output to console and to ../wekan-log.txt at end of this line: 2>&1 | tee ../wekan-log.txt
 		#WARN_WHEN_USING_OLD_API=true NODE_OPTIONS="--trace-warnings"
-		WRITABLE_PATH=.. WITH_API=true RICHER_CARD_COMMENT_EDITOR=false ROOT_URL=http://localhost:4000 meteor run --exclude-archs web.browser.legacy,web.cordova --port 4000 2>&1 | tee ../wekan-log.txt
+		#MONGO_URL=mongodb://127.0.0.1:27017/wekan BROWSER_POLICY_ENABLED=false WRITABLE_PATH=.. WITH_API=true RICHER_CARD_COMMENT_EDITOR=false ROOT_URL=http://10.1.1.160:4000 meteor run --exclude-archs web.browser.legacy,web.cordova --port 4000 2>&1 | tee ../wekan-log.txt
+		MONGO_URL=mongodb://10.1.1.225:27017/wekan BROWSER_POLICY_ENABLED=false WRITABLE_PATH=.. WITH_API=true RICHER_CARD_COMMENT_EDITOR=false ROOT_URL=http://10.1.1.160:4000 meteor run --exclude-archs web.browser.legacy,web.cordova --port 4000 2>&1 | tee ../wekan-log.txt
 		#---------------------------------------------------------------------
 		break
 		;;
@@ -179,7 +180,7 @@ do
                 #---------------------------------------------------------------------
                 #Logging of terminal output to console and to ../wekan-log.txt at end of this line: 2>&1 | tee ../wekan-log.txt
                 #WARN_WHEN_USING_OLD_API=true NODE_OPTIONS="--trace-warnings"
-                MONGO_URL=mongodb://127.0.0.1:27019/wekan WRITABLE_PATH=.. WITH_API=true RICHER_CARD_COMMENT_EDITOR=false ROOT_URL=http://$IPADDRESS:4000 meteor run --exclude-archs web.browser.legacy,web.cordova --port 4000 2>&1 | tee ../wekan-log.txt
+                MONGO_URL=mongodb://127.0.0.1:27017/wekan WRITABLE_PATH=.. WITH_API=true RICHER_CARD_COMMENT_EDITOR=false ROOT_URL=http://$IPADDRESS:4000 meteor run --exclude-archs web.browser.legacy,web.cordova --port 4000 2>&1 | tee ../wekan-log.txt
                 #---------------------------------------------------------------------
                 break
                 ;;
